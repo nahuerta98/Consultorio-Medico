@@ -1,0 +1,136 @@
+.main-page .itmMain:last-child
+	background-color: white
+
+h2
+	display: table
+	padding: 5px 10px
+	border-radius: 5px
+	background-color: #26C6DA
+	color: white
+	font-size: 20px
+	text-transform: uppercase
+	font-weight: bold	
+	
+.contenedor-general
+	width: 100%
+	max-width: 1115px
+	padding-left: 30px
+	border: 0
+
+
+.grid-pacientes
+	.itm
+		display: flex
+	.card-paciente
+		width: 95%
+		padding: 15px
+		border: 1px solid #ccc
+		border-radius: 4px
+		box-shadow: 1px 1px 2px 1px #f5f5f5
+		.info-paciente
+			h3
+				display: flex
+				align-items: center
+				color: #0277BD
+				font-weight: bold
+				font-size: 24px
+				span
+					font-size: 16px
+					padding: 5px
+					border-radius: 5px
+					background-color: #0277BD
+					color: white
+					line-height: 1
+					font-weight: bold
+					text-transform: uppercase
+					margin-right: 5px
+			p.hora
+				text-transform: uppercase
+				font-weight: bold
+				font-size: 15px
+				color: #49aebb
+				margin-left: auto
+				display: table
+			p.sintomas
+				line-height: 1.5
+				font-size: 17px
+				color: #333
+				margin-bottom: 0
+				span
+					text-transform: uppercase
+					font-weight: bold
+					font-size: 15px
+					color: #49aebb
+		
+
+.secciones
+	display: flex
+	align-items: flex-start
+	margin: 60px 0
+	.seccion-precios
+		width: 50%
+		position: relative
+		border-radius: 3px
+		border: 1px solid #ccc
+		padding: 15px 15px 0
+		margin-left: auto
+		margin-right: 15px		
+		h3
+			position: absolute
+			width: 150px
+			text-align: center
+			top: -15px
+			background-color: white
+			font-size: 20px
+			text-transform: uppercase
+			font-weight: bold
+			color: #333
+			a
+				text-decoration: underline
+				color: inherit
+				cursor: pointer
+	.seccion-acciones
+		width: 50%
+		position: relative
+		border-radius: 3px
+		border: 1px solid #ccc
+		padding: 30px 15px 0
+		margin-left: auto
+		margin-right: 15px
+		h3
+			position: absolute
+			width: 200px
+			text-align: center
+			top: -15px
+			background-color: white
+			font-size: 20px
+			text-transform: uppercase
+			font-weight: bold
+			color: #333
+		.grid-acciones
+			display: flex
+			flex-wrap: wrap
+			.itm
+				width: 50%
+				margin: 0 0 20px
+				a.btn
+					margin: 0 auto
+					width: 90%
+					text-align: center
+					text-transform: uppercase
+					font-weight: bold
+					font-size: 14px
+					display: flex
+					align-items: center
+					justify-content: center
+					cursor: pointer
+					padding-top: 10px
+					padding-bottom: 10px
+					i
+						margin-right: 10px
+
+table
+	tbody
+		tr
+			&:nth-child(even)
+				background-color: #eee

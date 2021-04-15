@@ -1,0 +1,100 @@
+<div class="main-page">
+	<div class="container">
+		<div class="itmMain">
+
+			<app-sidenav class="sidenav"></app-sidenav>
+
+		</div>
+		<div class="itmMain">
+
+			<div class="contenedor-general ">
+
+				<div class="seleccionar-vista large-btns">
+				
+					<a class="active">
+						<i class="far fa-eye"></i>
+						Todos los examenes
+					</a>
+				
+					<a [routerLink]="['/examen/nuevo']" class="greenBtn">
+						<i class="fas fa-plus"></i>
+						Nuevo Examen
+				
+					</a>
+				</div>
+
+				<div class="bloque active">
+					<table *ngIf="!cargando && examenes.length > 0" class="table animated fadeIn faster tablaPacientes">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Nombre del Examen</th>
+								<th scope="col">Duración (Minutos)</th>
+								<th scope="col">Volumen (Mililitros)</th>
+								<th scope="col">Precio</th>
+
+								<th scope="col">
+									Editar / Eliminar
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let examen of examenes; let i = index">
+								<th scope="row">
+									{{ i + 1 }}
+								</th>
+								<td>
+									<a [routerLink]="['/examen', examen.id]">
+										{{ examen.nombre }}
+									</a>
+								</td>
+								<td>
+									{{ examen.tiempo }}
+								</td>
+					
+								<td>
+									{{ examen.volumen }}
+								</td>
+								<td>
+									{{ examen.precio }}
+								</td>
+					
+								<td>
+					
+									<button [routerLink]="['/examen', examen.id]" class="btn btn-success">
+										<i class="fa fa-pen"></i>
+									</button>
+					
+									<button (click)="borrarExamen( examen, i )" class="btn btn-danger">
+										<i class="fa fa-trash"></i>
+									</button>
+					
+					
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<div *ngIf="!cargando && examenes.length === 0" class="alert alert-warning text-center mt-3">
+						<h4 class="alert-heading">No hay pacientes</h4>
+						<p>
+							<i class="fa fa-exclamation fa-2x"></i>
+						</p>
+					</div>
+					
+					<div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn faster">
+						<h4 class="alert-heading">Cargando</h4>
+						<p>
+							<i class="fa fa-sync-alt fa-spin fa-2x"></i>
+						</p>
+						<p class="mb-0">
+							Espere por favor
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>

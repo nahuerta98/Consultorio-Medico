@@ -1,0 +1,139 @@
+<div class="main-page">
+	<div class="container">
+		<div class="itmMain">
+
+			<app-sidenav class="sidenav"></app-sidenav>
+
+		</div>
+		<div class="itmMain">
+
+			<div class="contenedor-general ">
+
+				<div class="seleccionar-vista large-btns">
+
+					<a routerLink="/cita/nuevo" id="btnNuevoPaciente">
+						<i class="fas fa-plus"></i>
+						Nuevo Paciente
+					</a>
+
+					<a class="second active" >
+						<i class="fas fa-laptop-medical"></i>
+						Paciente Existente
+					</a>
+
+					<a class="third botonEscondido">
+						<i class="fas fa-pen"></i>
+						Habilitar edición
+					</a>
+
+				</div>	
+
+				<div class="formulario animated fadeIn faster bloque active">
+
+					<form
+						(ngSubmit)="guardarCita( f )"
+						#f="ngForm"
+					>
+
+						<div class="form-group d-none">
+
+							<label>ID en la Base de Datos</label>
+							<input 
+								type="text" 
+								placeholder="ID en la Base de Datos" 
+								[(ngModel)]="cita.id"
+								name="id"
+								class="form-control"
+								disabled="disabled"
+							>
+							<small class="form-text text-muted">
+								Este texto es autogenerado.
+							</small>
+
+						</div>
+
+						<div class="fieldset tres-columnas">
+
+							<div class="form-group">
+							
+								<label>Nombre del Paciente</label>
+								<select 
+									[(ngModel)]="cita.nombre"
+									name="nombre"
+									class="form-control"
+								>
+									<option 
+									*ngFor="let paciente of pacientes; let i = index" 
+									value="{{ paciente.nombre }}"> {{ paciente.nombre }} </option>
+
+								</select>
+							
+							</div>
+
+
+							<div class="form-group">
+							
+								<label>Fecha</label>
+								<input 
+									type="datetime-local" 
+									[(ngModel)]="cita.fecha" 
+									name="hora" 
+									class="form-control"
+								>
+							
+							</div>								
+
+							<div class="form-group">
+							
+								<label>Estado de la cita</label>
+								
+								<select 
+									[(ngModel)]="cita.acudio" 
+									name="acudio" 
+									class="form-control"
+								>
+									<option [ngValue]="false">No acudio</option>
+									<option [ngValue]="true">Si acudio</option>
+								</select>
+							
+
+							</div>
+
+						</div>
+
+						
+
+						<div class="fieldset">
+
+							<div class="form-group">
+							
+								<label>Sintomas</label>
+								<textarea 
+									[(ngModel)]="cita.sintomas" 
+									name="sintomas" 
+									class="form-control"
+								></textarea>
+							
+							</div>
+						</div>						
+
+
+						<div class="form-group">
+							<button 
+								type="submit" 
+								class="btn btn-primary w-25"
+								id="botonGuardarCambios"
+							>
+								<i class="fa fa-save"></i>
+								Agregar Cita
+							</button>
+						</div>						
+
+					</form>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>

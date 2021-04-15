@@ -1,0 +1,127 @@
+<div class="main-page">
+	<div class="container">
+		<div class="itmMain">
+
+			<app-sidenav class="sidenav"></app-sidenav>
+
+		</div>
+		<div class="itmMain">
+
+			<div class="contenedor-general ">
+
+				<div class="seleccionar-vista large-btns">
+
+					<a  class="active">
+						<i class="far fa-eye"></i>
+						Todos los pacientes
+					</a>
+
+					<a [routerLink]="['/paciente/nuevo']" class="greenBtn">
+						<i class="fas fa-plus"></i>
+						Nuevo Paciente
+
+					</a>
+				</div>
+
+				<div class="bloque active">
+
+					<table 
+						*ngIf="!cargando && pacientes.length > 0"
+						class="table animated fadeIn faster tablaPacientes"
+					>
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Nombre del paciente</th>
+								<th scope="col">Edad</th>
+
+								<th scope="col">Estatura (cm)</th>
+								<th scope="col">Peso (kg)</th>
+														
+								<th scope="col">Telefono</th>
+								<th scope="col">Correo Electronico</th>								
+
+								<th scope="col">
+									Editar / Eliminar
+								</th>
+							</tr>
+						</thead>
+						<tbody >
+							<tr *ngFor="let paciente of pacientes; let i = index">
+								<th scope="row">
+									{{ i + 1 }}
+								</th>
+								<td>
+									<a [routerLink]="['/paciente', paciente.id]">
+										{{ paciente.nombre }}
+									</a>
+								</td>
+								<td>
+									{{ paciente.edad }}
+								</td>
+
+								<td>
+									{{ paciente.altura }}
+								</td>
+								<td>
+									{{ paciente.peso }}
+								</td>
+								
+								<td>
+									<a href="tel:{{ paciente.telefono }}">{{ paciente.telefono }}</a>
+								</td>
+								<td>
+									<a href="mailto:{{ paciente.correo }}">{{ paciente.correo }}</a>
+								</td>								
+								<td>
+
+									<button 
+										[routerLink]="['/paciente', paciente.id]"
+										class="btn btn-success"
+									>
+											<i class="fa fa-pen"></i>
+									</button>
+									
+									<button 
+										(click)="borrarPaciente( paciente, i )"
+										class="btn btn-danger"
+									>
+										<i class="fa fa-trash"></i>
+									</button>
+
+
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div 
+						*ngIf="!cargando && pacientes.length === 0"
+						class="alert alert-warning text-center mt-3"
+					>
+						<h4 class="alert-heading">No hay pacientes</h4>
+						<p>
+							<i class="fa fa-exclamation fa-2x"></i>
+						</p>
+					</div>
+
+					<div 
+						*ngIf="cargando" 
+						class="alert alert-info text-center mt-3 animated fadeIn faster"
+					>
+						<h4 class="alert-heading">Cargando</h4>
+						<p>
+							<i class="fa fa-sync-alt fa-spin fa-2x"></i>
+						</p>
+						<p class="mb-0">
+							Espere por favor
+						</p>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>

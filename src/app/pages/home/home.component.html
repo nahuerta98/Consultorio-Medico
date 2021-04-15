@@ -1,0 +1,183 @@
+<div class="main-page">
+	<div class="container">
+		<div class="itmMain">
+
+			<app-sidenav class="sidenav"></app-sidenav>
+			
+		</div>
+		<div class="itmMain">
+			
+			<div class="contenedor-general">
+
+				<div class="primer-bloque">
+
+					<h2>
+						Citas para hoy: {{ CurrentDate | date }}
+					</h2>
+
+					<hr>
+
+					<div class="grid-pacientes" *ngIf="!cargando && citas.length > 0">
+
+						<ngx-slick-carousel 
+							class="carousel" 
+							#slickModal="slick-carousel" 
+							[config]="slideConfig" 
+							(init)="slickInit($event)"
+							(breakpoint)="breakpoint($event)"
+							(afterChange)="afterChange($event)" 
+							(beforeChange)="beforeChange($event)"
+						>
+							<ng-container 
+								ngxSlickItem 
+								*ngFor="let cita of citas; let i = index"
+							>
+								<ng-container *ngIf="( cita.fecha | date ) == ( CurrentDate | date ) && !cita.acudio">
+									
+										<div class="itm">
+			
+											<div class="card-paciente">
+			
+												<div class="info-paciente">
+			
+													<h3>
+														<span>Paciente:</span> {{ (cita.nombre.length>10)? (cita.nombre | slice:0:15)+'..':(cita.nombre) }}
+													</h3>
+													<div class="data">
+														<p class="sintomas">
+															<span>Sintomas:</span>
+															<br>
+															{{ (cita.sintomas.length>10)? (cita.sintomas | slice:0:25)+'..':(cita.sintomas) }}
+														</p>
+														<p class="hora">
+															<span>Hora:</span> {{ cita.fecha | date:'shortTime' }}
+														</p>
+													</div>
+													<div class="actions">
+														
+														<button 
+															type="button" 
+															class="btn btn-light w-100"
+															(click)="actualizarPaciente(cita.id, i)"
+														>
+															Actualizar paciente
+														</button>
+			
+													</div>
+												</div>
+			
+											</div>
+			
+			
+										</div>
+								</ng-container>
+							
+							</ng-container>
+
+						</ngx-slick-carousel>
+					</div>
+					
+					<div class="secciones">
+
+						<div class="seccion-precios">
+
+							<h3>
+								<a href="#!">
+									Precios
+								</a>
+							</h3>
+
+								<table class="table animated fadeIn faster">
+									<thead class="thead-dark">
+										<tr>
+											<th scope="col">Nombre del servicio</th>
+											<th scope="col">Precio</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												Consulta General
+											</td>
+											<td>
+												$ 400 MXN
+											</td>
+										</tr>
+										<tr>
+											<td>
+												Consulta General
+											</td>
+											<td>
+												$ 400 MXN
+											</td>
+										</tr>
+										<tr>
+											<td>
+												Consulta General
+											</td>
+											<td>
+												$ 400 MXN
+											</td>
+										</tr>
+										<tr>
+											<td>
+												Consulta General
+											</td>
+											<td>
+												$ 400 MXN
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+						</div>
+
+						<div class="seccion-acciones">
+
+							<h3>
+								Accesos rápidos
+							</h3>
+
+							<div class="grid-acciones">
+
+								<div class="itm">
+									<a routerLink="/cita/nuevo" class="btn btn-info">
+										<i class="fas fa-file-medical"></i>
+										Agendar Cita
+									</a>
+								</div>
+								<div class="itm">
+									<a routerLink="/paciente/nuevo" class="btn btn-info">
+										<i class="fas fa-id-card-alt"></i>
+										Agregar Paciente
+									</a>
+								</div>
+								<div class="itm">
+									<a routerLink="/medicamentos" class="btn btn-info">
+										<i class="fas fa-tablets"></i>
+										Lista de medicamentos
+									</a>
+								</div>
+								<div class="itm">
+									<a routerLink="/examenes" class="btn btn-info">
+										<i class="fas fa-file-medical-alt"></i>										
+										Lista de examenes
+									</a>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+

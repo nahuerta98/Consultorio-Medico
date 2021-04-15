@@ -1,0 +1,157 @@
+<div class="main-page">
+	<div class="container">
+		<div class="itmMain">
+
+			<app-sidenav class="sidenav"></app-sidenav>
+
+		</div>
+		<div class="itmMain">
+
+			<div class="contenedor-general ">
+				<h2>
+					Citas para hoy: {{ CurrentDate | date }}
+				</h2>
+				<br>
+
+				<div class="seleccionar-vista xlarge-btns-1" id="botonesCitasHoy">
+				
+					<a class="active">
+						<i class="fas fa-diagnoses"></i>
+						Ver consultas
+					</a>
+				
+					<a >
+						<i class="fas fa-vial"></i>
+						Ver examenes				
+					</a>
+				
+				</div>
+				
+				<div class="bloque bloquesCitasparaHoy active">
+					<table *ngIf="!cargando && citas.length > 0" class="table animated fadeIn faster tablaPacientes">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Nombre del paciente</th>
+								<th scope="col">Hora</th>
+					
+								<th scope="col">Sintomas</th>
+					
+								<th scope="col">
+									Editar
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let cita of citas; let i = index">
+								<ng-container *ngIf="!cita.acudio">
+									<th scope="row">
+										{{ i + 1 }}
+									</th>
+									<td>
+										<a [routerLink]="['/cita-paciente-existente', cita.id]">
+											{{ cita.nombre }}
+										</a>
+									</td>
+					
+									<td>
+										{{ cita.fecha | date:'shortTime' }}
+									</td>
+									<td>
+										{{ (cita.sintomas.length>40)? (cita.sintomas | slice:0:40)+'..':(cita.sintomas) }}
+									</td>
+					
+									<td>
+					
+										<button [routerLink]="['/cita-paciente-existente', cita.id]" class="btn btn-success">
+											<i class="fa fa-pen"></i>
+										</button>
+					
+					
+									</td>
+								</ng-container>
+							</tr>
+						</tbody>
+					</table>
+					
+					<div *ngIf="!cargando && citas.length === 0" class="alert alert-warning text-center mt-3">
+						<h4 class="alert-heading">No hay citas programadas</h4>
+						<p>
+							<i class="fa fa-exclamation fa-2x"></i>
+						</p>
+					</div>
+					
+					<div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn faster">
+						<h4 class="alert-heading">Cargando</h4>
+						<p>
+							<i class="fa fa-sync-alt fa-spin fa-2x"></i>
+						</p>
+						<p class="mb-0">
+							Espere por favor
+						</p>
+					</div>
+					
+
+
+				</div>
+
+				<div class="bloque bloquesCitasparaHoy ">
+					<table *ngIf="!cargando && citasExmn.length > 0" class="table animated fadeIn faster tablaPacientes" mat-table>
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Nombre del paciente</th>
+								<th scope="col">Hora</th>
+					
+								<th scope="col">Tipo de Examen</th>
+					
+								<th scope="col">Estatus</th>
+					
+								<th scope="col">
+									Editar
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let cita of citasExmn; let i = index">
+								<th scope="row">
+									{{ i + 1 }}
+								</th>
+								<td>
+									<a>
+										{{ cita.paciente }}
+									</a>
+								</td>
+					
+								<td>
+									{{ cita.fecha | date:'shortTime' }}
+								</td>
+								<td>
+									{{ cita.tipoexamen }}
+								</td>
+					
+								<td>
+					
+									<label *ngIf="cita.pagado" class="badge badge-success">Pagado</label>
+									<label *ngIf="!cita.pagado" class="badge badge-danger">No Pagado</label>
+					
+								</td>
+					
+								<td>
+					
+									<button [routerLink]="['/cita-examen', cita.id]" class="btn btn-success">
+										<i class="fa fa-pen"></i>
+									</button>
+					
+					
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>

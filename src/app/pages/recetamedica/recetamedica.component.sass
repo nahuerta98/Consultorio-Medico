@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,500,700&display=swap')
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes&display=swap')
+
+
+.card-receta
+    border-radius: 5px
+    border: 2px solid #1976D2
+    padding: 20px
+    p
+        color: #1976D2
+    .head-receta
+        width: 100%
+        display: flex
+        .itm
+            width: 30%
+            &:nth-child(2)
+                width: 100%
+                
+        p
+            font-size: 13px
+            margin: 0
+        .direccion
+            p
+                text-align: left
+        .mainInfo
+            text-align: center
+            h1, h2, h3, h4, h5, h6
+                margin: 0
+                color: #1976D2
+            h1
+                font-family: 'Cabin'
+            h2, h4, h5
+                font-family: 'Cambria'
+                font-weight: bold
+            h2
+                font-size: 20px
+            h3
+                font-family: 'Great Vibes', cursive
+                font-size: 36px
+                margin: 5px 0
+            h4
+                font-size: 17px
+            h5
+                font-size: 15px
+        .contacto
+            p
+                text-align: right
+    .paciente-part
+        display: flex
+        align-items: center   
+        margin: 30px 0
+        p
+            margin: 0
+        .nombre
+            display: flex
+            align-items: center
+            width: 78%
+            margin-right: auto
+            p
+                margin-right: 10px
+                font-weight: bold
+            select
+                border: 0
+                border-bottom: 2px solid #1976D2
+                border-radius: 0
+                padding: 5px
+                width: 100%
+                text-transform: capitalize
+        .fecha
+            width: 20%
+            p
+                font-weight: bold
+                text-align: right
+    .receta-part
+        border-radius: 5px
+        position: relative
+        i
+            position: absolute
+            top: 10px
+            left: 10px
+            font-size: 50px
+            color: hsla(207, 90%, 54%, 0.1) 
+            z-index: 1
+        .box
+            position: relative
+            z-index: 2
+            textarea
+                background: transparent
+                width: 100%
+                padding: 10px
+                border: 1px solid rgba(25, 118, 210, 0.2)!important
+                font-size: 18px
+                min-height: 300px!important
+    .foot-receta
+        display: flex
+        align-items: flex-end
+        justify-content: flex-end
+        flex-flow: column
+        margin: 30px 0 0
+        input
+            width: 300px
+            border: 0
+            border-bottom: 2px solid #1976D2
+            border-radius: 0
+            padding: 5px            
+        p
+            font-weight: bold
+            text-transform: uppercase
+            width: 300px
+            text-align: center
+            margin-top: 10px

@@ -1,0 +1,124 @@
+<div class="main-page">
+	<div class="container">
+		<div class="itmMain">
+
+			<app-sidenav class="sidenav"></app-sidenav>
+
+		</div>
+		<div class="itmMain">
+
+			<div class="contenedor-general ">
+
+
+				<div class="bloque active">
+
+                    <div class="card-receta">
+
+                        <div class="head-receta">
+
+                            <div class="itm">
+
+                                <div class="direccion">
+
+                                    <p>AV. LINCON No. 180</p>
+                                    <p>COL. MITRAS NORTE</p>
+                                    <p>MONTERREY, N.L. MEXICO</p>
+                                    <br>
+                                    <p>CED. PROF. 1525611</p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="itm">
+
+                                <div class="mainInfo">
+
+                                    <h1>METROCLINICA</h1>
+                                    <h2>
+                                        CLINICA DE ESPECIALIDADES MEDICAS
+                                    </h2>
+                                    <h3>
+                                        Dr. Pedro Gerardo García Quintana
+                                    </h3>
+                                    <h4>
+                                        MEDICO CIRUJANO PARTERO
+                                    </h4>
+                                    <h5>
+                                        U.A.N.L.
+                                    </h5>
+
+                                </div>
+
+                            </div> 
+                            
+                            <div class="itm">
+
+                                <div class="contacto">
+
+                                    <p>Tels. 83-70-48-77, 83-70-29-44</p>
+                                    <p>Cels. 044-81-80-20-29-63</p>
+                                    <p>metroclinica@hotmail.com</p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="paciente-part">
+
+                            <div class="nombre">
+
+                                <p>Paciente:</p>
+                                <select 
+                                    [(ngModel)]="paciente.nombre" 
+                                    name="nombre" 
+                                    class="form-control"
+                                >
+                                    <option *ngFor="let paciente of pacientes; let i = index" value="{{ paciente.nombre }}"> {{ paciente.nombre }}
+                                    </option>
+                                
+                                </select>
+
+                            </div>
+                            <div class="fecha">
+                                <p>A: {{ CurrentDate | date:'longDate' }} </p>
+                            </div>
+
+                        </div>
+
+                        <div class="receta-part">
+
+                            <i class="fas fa-prescription"></i>
+                            <div class="box">
+
+                                <textarea></textarea>
+
+                            </div>
+
+                        </div>
+
+                        <div class="foot-receta">
+                            <input type="text">
+                            <p style="margin: 0">Firma</p>
+                            <p style="margin: 0">Dr. Pedro Gerardo García Quintana</p>
+                        </div>
+
+                    </div>
+                    <br>
+                    <a class="btn btn-outline-info btn-imprimir">
+                        Imprimir Receta
+                    </a>
+
+
+				</div>
+
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+

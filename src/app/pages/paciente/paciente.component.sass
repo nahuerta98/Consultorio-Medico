@@ -1,0 +1,15 @@
+form
+	.fieldset
+		display: grid
+		&.dos-columnas
+			grid-template-columns: 1fr 1fr
+			grid-gap: 0 20px
+		&.tres-columnas
+			grid-template-columns: 1fr 1fr 1fr
+			grid-gap: 0 20px
+
+.seleccionar-vista 
+	a
+		&.botonEscondido
+			&.active
+				background-color: #4ac3c3

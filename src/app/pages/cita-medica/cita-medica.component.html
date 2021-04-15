@@ -1,0 +1,219 @@
+<div class="main-page">
+	<div class="container">
+		<div class="itmMain">
+
+			<app-sidenav class="sidenav"></app-sidenav>
+
+		</div>
+		<div class="itmMain">
+
+			<div class="contenedor-general ">
+
+				<div class="seleccionar-vista large-btns ">
+
+					<a  class="active">
+						<i class="fas fa-plus"></i>
+						Nuevo Paciente
+					</a>
+
+					<a routerLink="/cita-paciente-existente/nuevo" >
+						<i class="fas fa-laptop-medical"></i>
+						Paciente Existente
+					</a>
+					
+				</div>	
+				
+				<div class="formulario animated fadeIn faster bloque active">
+
+					<form
+						(ngSubmit)="guardarCita( f );guardarPaciente( g )"
+						#f="ngForm"
+						#g="ngForm"
+					>
+
+						<div class="form-group d-none">
+
+							<label>ID en la Base de Datos</label>
+							<input 
+								type="text" 
+								placeholder="ID en la Base de Datos" 
+								[(ngModel)]="paciente.id"
+								name="id"
+								class="form-control"
+								disabled="disabled"
+							>
+							<small class="form-text text-muted">
+								Este texto es autogenerado.
+							</small>
+
+						</div>
+
+						<div class="fieldset dos-columnas">
+
+							<div class="form-group">
+							
+								<label>Nombre del Paciente</label>
+								<input 
+									type="text" 
+									placeholder="Nombre del paciente" 
+									[(ngModel)]="paciente.nombre" 
+									[(ngModel)]="cita.nombre" 
+									name="nombre" 
+									class="form-control"
+									required
+								>
+							
+							</div>
+
+							<div class="form-group">
+							
+								<label>Edad del paciente</label>
+								<input 
+									min="0" 
+									max="99" 
+									type="number" 
+									placeholder="Edad del paciente" 
+									[(ngModel)]="paciente.edad" 
+									name="edad"
+									class="form-control" 
+									required
+								>
+							
+							</div>
+
+						</div>
+
+						<div class="fieldset tres-columnas">
+
+							<div class="form-group">
+							
+								<label>Peso (KG)</label>
+								<input 
+									type="number" 
+									[(ngModel)]="paciente.peso" 
+									name="peso" 
+									class="form-control"
+									min="0"
+								>
+							
+							</div>
+							<div class="form-group">
+							
+								<label>Estatura (CM)</label>
+								<input 
+									type="number" 
+									[(ngModel)]="paciente.altura" 
+									name="altura" 
+									class="form-control"
+									min="0"
+								>							
+							</div>
+							<div class="form-group gender">
+							
+								<label>Género</label>
+								<br>
+								<select 
+									[(ngModel)]="paciente.genero"
+									name="genero"
+									class="form-control"
+								>
+									<option selected="selected" value="Masculino">Masculino</option>
+									<option value="Femenino">Femenino</option>
+
+								</select>
+							
+							</div>	
+
+						</div>
+
+						<div class="fieldset dos-columnas">
+
+							<div class="form-group">
+							
+								<label>Telefono</label>
+								<input 
+									type="tel" 
+									[(ngModel)]="paciente.telefono" 
+									name="telefono" 
+									class="form-control"
+								>
+							
+							</div>
+							<div class="form-group">
+							
+								<label>Correo electronico</label>
+								<input 
+									type="email" 
+									[(ngModel)]="paciente.correo" 
+									name="correo" 
+									class="form-control"
+								>							
+							</div>							
+
+						</div>
+
+						<div class="fieldset">
+
+							<div class="form-group">
+							
+								<label>Dirección</label>
+								<input 
+									type="text" 
+									[(ngModel)]="paciente.direccion" 
+									name="direccion" 
+									class="form-control"
+								>
+							
+							</div>
+						</div>
+
+						<div class="fieldset dos-columnas">
+
+							<div class="form-group">
+							
+								<label>Hora</label>
+								<input 
+									type="datetime-local" 
+									[(ngModel)]="cita.fecha" 
+									name="hora" 
+									class="form-control"
+								>
+							
+							</div>
+						</div>						
+
+						<div class="fieldset">
+
+							<div class="form-group">
+							
+								<label>Sintomas</label>
+								<textarea 
+									[(ngModel)]="cita.sintomas" 
+									name="sintomas" 
+									class="form-control"
+								></textarea>
+							
+							</div>
+						</div>						
+
+
+						<div class="form-group">
+							<button 
+								type="submit" 
+								class="btn btn-primary w-25"
+								id="botonGuardarCambios"
+							>
+								<i class="fa fa-save"></i>
+								Agregar Paciente
+							</button>
+						</div>						
+
+					</form>
+				</div>
+
+
+			</div>
+
+		</div>
+	</div>
+</div>

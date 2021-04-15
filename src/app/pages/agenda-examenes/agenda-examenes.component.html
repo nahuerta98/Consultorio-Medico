@@ -1,0 +1,115 @@
+<div class="main-page">
+	<div class="container">
+		<div class="itmMain">
+
+			<app-sidenav class="sidenav"></app-sidenav>
+
+		</div>
+		<div class="itmMain">
+
+			<div class="contenedor-general ">
+
+				<div class="seleccionar-vista xlarge-btns-1">
+				
+					<a class="active">
+						<i class="far fa-eye"></i>
+						Ver la agenda de examenes
+					</a>
+				
+					<a routerLink="/cita-examen/nuevo" routerLinkActive="active" id="btnNuevoExamen" class="greenBtn ">
+						<i class="fas fa-plus"></i>
+						Agendar Examen
+				
+					</a>
+				
+				</div>
+
+				<div class="bloque active">
+
+					<table *ngIf="!cargando && citas.length > 0" class="table animated fadeIn faster tablaPacientes"
+						mat-table>
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Nombre del paciente</th>
+								<th scope="col">Hora</th>
+								<th scope="col">Fecha</th>
+
+								<th scope="col">Tipo de Examen</th>
+
+								<th scope="col">Estatus</th>
+
+								<th scope="col">
+									Editar / Eliminar
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let cita of citas; let i = index">
+								<th scope="row">
+									{{ i + 1 }}
+								</th>
+								<td>
+									<a>
+										{{ cita.paciente }}
+									</a>
+								</td>
+
+								<td>
+									{{ cita.fecha | date:'shortTime' }}
+								</td>
+								<td>
+									{{ cita.fecha | date:'shortDate' }}
+								</td>
+								<td>
+									{{ cita.tipoexamen }}
+								</td>
+
+								<td>
+
+									<label *ngIf="cita.pagado" class="badge badge-success">Pagado</label>
+									<label *ngIf="!cita.pagado" class="badge badge-danger">No Pagado</label>
+
+								</td>
+
+								<td>
+
+									<button [routerLink]="['/cita-examen', cita.id]" class="btn btn-success">
+										<i class="fa fa-pen"></i>
+									</button>
+
+									<button (click)="borrarCita( cita, i )" class="btn btn-danger">
+										<i class="fa fa-trash"></i>
+									</button>
+
+
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div *ngIf="!cargando && citas.length === 0" class="alert alert-warning text-center mt-3">
+						<h4 class="alert-heading">No hay citas programadas</h4>
+						<p>
+							<i class="fa fa-exclamation fa-2x"></i>
+						</p>
+					</div>
+
+					<div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn faster">
+						<h4 class="alert-heading">Cargando</h4>
+						<p>
+							<i class="fa fa-sync-alt fa-spin fa-2x"></i>
+						</p>
+						<p class="mb-0">
+							Espere por favor
+						</p>
+					</div>
+
+				</div>
+
+
+			</div>
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,157 @@
+<div class="content-sidenav">
+
+    <div class="profile-intro">
+
+        <div class="photo">
+            <i class="fas fa-user-md"></i>
+        </div>
+        <div class="name">
+            <h2>
+                Dr. Pedro Quintana
+            </h2>
+        </div>
+
+    </div>
+
+    <!-- Menu de navegacion -->
+
+    <div class="box-menu">
+
+        <a [routerLink]="['/home']" routerLinkActive="active" class="link-icon">
+            <i class="fas fa-home"></i>
+            Inicio
+        </a>
+
+    </div>
+
+    <div class="box-menu">
+    
+        <!--<a [routerLink]="['/citas-para-hoy']" routerLinkActive="active" class="link-icon" >
+            <i class="fas fa-hospital-user"></i>
+            Citas para hoy
+        </a>-->
+    
+    </div>
+
+    <div class="box-menu">
+
+        <a class="link-icon dropAct">
+            <i class="fas fa-heartbeat"></i>
+            Citas Medicas
+        </a>
+        <ul class="dropMenu" routerLinkActive="active">
+
+            <li>
+                <a routerLink="/todas-las-citas/" routerLinkActive="active" >
+                    <i class="fas fa-angle-right"></i>
+                    Citas agendadas
+                </a>
+            </li>
+            <li>
+                <a routerLink="/cita/nuevo" routerLinkActive="active">
+                    <i class="fas fa-angle-right"></i>
+                    Agendar cita
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="box-menu">
+    
+        <a class="link-icon dropAct">
+            <i class="fas fa-file-medical-alt"></i>
+            Examenes
+        </a>
+        <ul class="dropMenu" routerLinkActive="active">
+            <li>
+                <a routerLink="/examenes" routerLinkActive="active">
+                    <i class="fas fa-angle-right"></i>
+                    Lista de Examenes
+                </a>
+            </li>
+            <li>
+                <a 
+                    routerLink="/examen/nuevo" 
+                    routerLinkActive="active"
+                    (click)="recargarExamenes()"
+                >
+                    <i class="fas fa-angle-right"></i>
+                    Crear Examen
+                </a>
+            </li>
+            <li>
+                <a routerLink="/citas-examen" routerLinkActive="active">
+                    <i class="fas fa-angle-right"></i>
+                    Ver agenda de examenes
+                </a>
+            </li>
+            <li>
+                <a routerLink="/cita-examen/nuevo" routerLinkActive="active">
+                    <i class="fas fa-angle-right"></i>
+                    Agendar Examen
+                </a>
+            </li>
+        </ul>
+    
+    </div>
+
+    <div class="box-menu">
+
+        <a class="link-icon dropAct">
+            <i class="fas fa-head-side-cough"></i>
+           Pacientes
+        </a>
+        <ul class="dropMenu" routerLinkActive="active">
+            <li>
+                <a routerLink="/pacientes" routerLinkActive="active">
+                    <i class="fas fa-angle-right"></i>
+                    Lista de pacientes
+                </a>
+            </li>
+            <li>
+                <a 
+                    routerLink="/paciente/nuevo" 
+                    routerLinkActive="active" 
+                    id="recargar" 
+                    (click)="recargarPacientes()"
+                >
+                    <i class="fas fa-angle-right"></i>
+                    Añadir Paciente
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="box-menu">
+
+        <a class="link-icon dropAct">
+            <i class="fas fa-tablets"></i>
+            Farmacia
+        </a>
+        <ul class="dropMenu" routerLinkActive="active">
+            <li>
+                <a [routerLink]="['/medicamentos']" routerLinkActive="active" >
+                    <i class="fas fa-angle-right"></i>
+                    Medicamentos
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="box-menu">
+
+        <a class="link-icon" routerLink="/receta-medica" routerLinkActive="active">
+            <i class="fas fa-prescription"></i>
+            Receta Medica
+        </a>
+
+    </div>    
+
+    <!-- <div class="foot">
+        <button (click)="salir()">Salir</button>
+    </div> -->
+
+</div>
